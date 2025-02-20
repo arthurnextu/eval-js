@@ -32,12 +32,25 @@ function addDestination(destinations, destination) {
 addDestination(destinations, destination)
 console.log(destinations);
 
+displayDestinationSummary(destination);
+
 function displayDestinationSummary(destination) {
     console.log(`Destination : ${destination.city} (${destination.country}).`)
     console.log('Activities:');
     destination.activities.forEach(activity => {
         console.log(`- ${activity.activityName} (${activity.cost} EUR)`);
     });
+    console.log(`Total cost: ${calculateTotalCost(destination)} EUR`);
 }
 
-displayDestinationSummary(destination)
+function displayTripSummary(destinations) {
+    let totalTripCost = 0;
+    destinations.forEach(destination => {
+        displayDestinationSummary(destination);
+        console.log(displayDestinationSummary(destination));
+        totalTripCost += calculateTotalCost(destination);
+    });
+    console.log(`Total trip cost: ${totalTripCost} EUR`);
+}
+
+displayTripSummary(destinations);
