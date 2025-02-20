@@ -21,9 +21,7 @@ console.log(destination.activities);
 // [{ name: "Visite du Louvre", cost: 20 }]
 
 addActivity(destination, "Tour Eiffel", 50);
-console.log(destination.activities);
-
-console.log(destination);
+console.log(destination.activities)
 
 // Calcul du coût total
 const calculateTotalCost = (destination) => {
@@ -35,3 +33,17 @@ const calculateTotalCost = (destination) => {
 }
 
 console.log(calculateTotalCost(destination));
+
+// tableau de destinations
+const destinations = [];
+
+// Ajout d'une destination
+const addDestination = (destinations, destination) => {
+    destinations.push(destination);
+}
+
+addDestination(destinations, { name: "Tokyo", country: "Japan", activities: []});
+addActivity(destinations[0], "Visite du temple", 30);
+addDestination(destinations, { name: "New York", country: "USA", activities: []});
+addActivity(destinations[1], "Visite de Central Park", 10);
+console.table(destinations);
